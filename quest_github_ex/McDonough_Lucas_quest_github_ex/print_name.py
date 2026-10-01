@@ -1,5 +1,5 @@
 # change this to your name
-name = 'Lucas McDonough'
+name = 'lucas McDonough'
 
 with open('name.txt', 'w') as f:
     for i in range(len(name) + 1):
