@@ -1,0 +1,6 @@
+Cases compared: 93
+Only KimiaNet correct: 1
+Only UNI2 correct: 14
+Both correct: 75
+Both wrong: 3
+Exact McNemar p-value: 0.001

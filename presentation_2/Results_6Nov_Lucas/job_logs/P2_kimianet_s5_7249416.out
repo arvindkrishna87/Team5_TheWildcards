@@ -1,0 +1,243 @@
+Job ID: 7249416
+Split: 5 (/home/ele0436/STAT390_coder/presentation2/splits/data_splits_new_05.npz)  Encoder: kimianet (/projects/e32998/patches_varsize_pooled4096, dim 4096)
+Start time: Wed Nov  4 21:32:44 CST 2026
+Random seed set to 436
+Using CPU
+Created run directory: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416
+================================================================================
+HIERARCHICAL ATTENTION MIL TRAINING
+================================================================================
+Arguments: {'labels_csv': '/projects/e32998/STAT390_Krish/Code/Code4_reduce_runtime/extra_benign_case_grade_match.csv', 'patches_dir': '/projects/e32998/patches_benign_split', 'epochs': 30, 'lr': 0.000208, 'batch_size': 1, 'num_workers': 2, 'embed_dim': 512, 'per_slice_cap': 500, 'max_slices_per_stain': 5, 'seed': 436, 'resume': None, 'eval_only': False, 'analyze_attention': True, 'attention_top_n': 8, 'embeddings_dir': '/projects/e32998/patches_varsize_pooled4096', 'pooled_dim': 4096, 'val_every_updates': 10, 'load_splits': '/home/ele0436/STAT390_coder/presentation2/splits/data_splits_new_05.npz', 'checkpoint_dir': '/home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints'}
+Training config (may be overridden by arguments): {'epochs': 30, 'batch_size': 1, 'learning_rate': 0.000208, 'weight_decay': 0.000305, 'num_workers': 2, 'pin_memory': True, 'random_state': 42, 'class_weights': [2.5285, 1.0], 'dropout': 0.2599, 'use_scheduler': True, 'scheduler_type': 'reduce_on_plateau', 'scheduler_patience': 4, 'scheduler_factor': 0.2139, 'scheduler_min_lr': 1e-06, 'early_stopping': True, 'early_stopping_patience': 8, 'early_stopping_min_delta': 0.001, 'early_stopping_min_epochs': 10, 'use_patch_entropy_regularization': True, 'patch_entropy_lambda': 0.001, 'patch_entropy_mode': 'max', 'patch_entropy_eps': 1e-08, 'normalize_patch_entropy': True}
+============================================================
+PREPARING DATA
+============================================================
+Loaded 118 labels
+Found 83630 patch files
+All 3808 non-standard file names were handled.
+Grouped into 383 slices
+Mapped 371 slices to classes
+Class distribution: {1: 238, 0: 133}
+
+----------------------------------------
+SPLITTING DATA
+----------------------------------------
+Loading existing splits from: /home/ele0436/STAT390_coder/presentation2/splits/data_splits_new_05.npz
+Data splits loaded from: /home/ele0436/STAT390_coder/presentation2/splits/data_splits_new_05.npz
+Loaded splits - Train: 235, Val: 74, Test: 62
+Cases per split: 57 18 18
+Paths per split: 51072 14305 14664
+No leakage between train & val (cases).
+No leakage between train & test (cases).
+No leakage between val & test (cases).
+No leakage between train & val (paths).
+No leakage between train & test (paths).
+No leakage between val & test (paths).
+
+Data Summary:
+==================================================
+
+Label distribution per split:
+label   0   1
+split        
+test    7  11
+train  21  36
+val     7  11
+
+Mean patches per stain per split:
+       h&e_patches  melan_patches  sox10_patches
+split                                           
+test         427.5          202.3          184.8
+train        446.8          249.2          200.0
+val          362.4          231.9          200.4
+
+Median patches per stain per split:
+       h&e_patches  melan_patches  sox10_patches
+split                                           
+test         330.5          176.0          164.0
+train        326.0          192.0          146.0
+val          293.0          178.5          148.0
+
+Missing stain proportion:
+       h&e_missing  melan_missing  sox10_missing
+split                                           
+test           0.0          0.056          0.056
+train          0.0          0.018          0.018
+val            0.0          0.000          0.000
+
+Total cases: 93
+Total patches: 80,041
+==================================================
+
+Patch count by class for Train:
+  Benign (0):     14608 patches
+  High-grade (1): 36464 patches
+
+Patch count by class for Validation:
+  Benign (0):     5166 patches
+  High-grade (1): 9139 patches
+
+Patch count by class for Test:
+  Benign (0):     6006 patches
+  High-grade (1): 8658 patches
+
+Data Integrity Check for Train:
+Stain coverage:
+  h&e: 57/57 (100.0%)
+  melan: 56/57 (98.2%)
+  sox10: 56/57 (98.2%)
+No issues found
+
+Data Integrity Check for Validation:
+Stain coverage:
+  h&e: 18/18 (100.0%)
+  melan: 18/18 (100.0%)
+  sox10: 18/18 (100.0%)
+No issues found
+
+Data Integrity Check for Test:
+Stain coverage:
+  h&e: 18/18 (100.0%)
+  melan: 17/18 (94.4%)
+  sox10: 17/18 (94.4%)
+No issues found
+Using existing splits from: /home/ele0436/STAT390_coder/presentation2/splits/data_splits_new_05.npz
+
+============================================================
+CREATING DATA LOADERS (POOLED FEATURES)
+============================================================
+Created data loaders - Train: 57, Val: 18, Test: 18
+
+============================================================
+CREATING MODEL
+============================================================
+
+Model Summary:
+==================================================
+Total parameters: 2,493,061
+Trainable parameters: 2,493,061
+Model size: 9.51 MB
+==================================================
+
+============================================================
+TRAINING MODEL
+============================================================
+Starting training from epoch 1 to 30
+Device: cpu
+Model parameters: 2,493,061
+LR scheduler: ReduceLROnPlateau
+Patch entropy regularization enabled (lambda=0.001, mode=max, normalize=True) -> maximize entropy (smoother attention)
+Early stopping enabled (patience=8, min_delta=0.001, min_epochs=10)
+
+Epoch 1/30 (LR: 2.08e-04)
+Train Loss: 1.6458 | Train CE: 1.6468 | Train Patch Entropy: 0.9736 | Val Loss: 0.7041 | Val Acc: 0.7778
+Epoch Time: 319.93s
+New best validation loss: 0.704084 at epoch 1
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_213907_HierarchicalAttnMIL_epoch1.pth
+Best checkpoint updated: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/best.pth
+
+Epoch 2/30 (LR: 2.08e-04)
+Train Loss: 0.6670 | Train CE: 0.6680 | Train Patch Entropy: 0.9391 | Val Loss: 1.7083 | Val Acc: 0.6111
+Epoch Time: 382.34s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_214529_HierarchicalAttnMIL_epoch2.pth
+
+Epoch 3/30 (LR: 2.08e-04)
+Train Loss: 0.5144 | Train CE: 0.5154 | Train Patch Entropy: 0.9561 | Val Loss: 0.7262 | Val Acc: 0.7778
+Epoch Time: 368.56s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_215138_HierarchicalAttnMIL_epoch3.pth
+
+Epoch 4/30 (LR: 2.08e-04)
+Train Loss: 0.4355 | Train CE: 0.4365 | Train Patch Entropy: 0.9564 | Val Loss: 0.1700 | Val Acc: 0.9444
+Epoch Time: 360.78s
+New best validation loss: 0.170005 at epoch 4
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_215739_HierarchicalAttnMIL_epoch4.pth
+Best checkpoint updated: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/best.pth
+
+Epoch 5/30 (LR: 2.08e-04)
+Train Loss: 0.1462 | Train CE: 0.1472 | Train Patch Entropy: 0.9433 | Val Loss: 0.7345 | Val Acc: 0.8889
+Epoch Time: 360.02s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_220339_HierarchicalAttnMIL_epoch5.pth
+
+Epoch 6/30 (LR: 2.08e-04)
+Train Loss: 0.1933 | Train CE: 0.1942 | Train Patch Entropy: 0.9295 | Val Loss: 0.2420 | Val Acc: 0.8889
+Epoch Time: 306.92s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_220846_HierarchicalAttnMIL_epoch6.pth
+
+Epoch 7/30 (LR: 2.08e-04)
+Train Loss: 0.2077 | Train CE: 0.2086 | Train Patch Entropy: 0.9362 | Val Loss: 0.1592 | Val Acc: 1.0000
+Epoch Time: 318.18s
+New best validation loss: 0.159162 at epoch 7
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_221404_HierarchicalAttnMIL_epoch7.pth
+Best checkpoint updated: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/best.pth
+
+Epoch 8/30 (LR: 2.08e-04)
+Train Loss: 0.1352 | Train CE: 0.1361 | Train Patch Entropy: 0.9544 | Val Loss: 0.6347 | Val Acc: 0.9444
+Epoch Time: 305.71s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_221910_HierarchicalAttnMIL_epoch8.pth
+
+Epoch 9/30 (LR: 2.08e-04)
+Train Loss: 0.0172 | Train CE: 0.0182 | Train Patch Entropy: 0.9458 | Val Loss: 0.6825 | Val Acc: 0.9444
+Epoch Time: 360.92s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_222511_HierarchicalAttnMIL_epoch9.pth
+
+Epoch 10/30 (LR: 2.08e-04)
+Train Loss: 0.0057 | Train CE: 0.0066 | Train Patch Entropy: 0.9310 | Val Loss: 0.4894 | Val Acc: 0.9444
+Epoch Time: 341.06s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_223052_HierarchicalAttnMIL_epoch10.pth
+
+Epoch 11/30 (LR: 2.08e-04)
+Train Loss: 0.0016 | Train CE: 0.0025 | Train Patch Entropy: 0.9273 | Val Loss: 0.5537 | Val Acc: 0.9444
+Epoch Time: 332.09s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_223624_HierarchicalAttnMIL_epoch11.pth
+
+Epoch 12/30 (LR: 2.08e-04)
+Train Loss: 0.0017 | Train CE: 0.0026 | Train Patch Entropy: 0.9255 | Val Loss: 0.6247 | Val Acc: 0.9444
+Epoch Time: 348.18s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_224213_HierarchicalAttnMIL_epoch12.pth
+
+Epoch 13/30 (LR: 4.45e-05)
+Train Loss: 0.0018 | Train CE: 0.0027 | Train Patch Entropy: 0.9229 | Val Loss: 0.6221 | Val Acc: 0.9444
+Epoch Time: 341.86s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_224755_HierarchicalAttnMIL_epoch13.pth
+
+Epoch 14/30 (LR: 4.45e-05)
+Train Loss: 0.0017 | Train CE: 0.0026 | Train Patch Entropy: 0.9227 | Val Loss: 0.6208 | Val Acc: 0.9444
+Epoch Time: 288.96s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_225244_HierarchicalAttnMIL_epoch14.pth
+
+Epoch 15/30 (LR: 4.45e-05)
+Train Loss: 0.0010 | Train CE: 0.0020 | Train Patch Entropy: 0.9224 | Val Loss: 0.6191 | Val Acc: 0.9444
+Epoch Time: 361.98s
+Checkpoint saved: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/checkpoints/20261104_225846_HierarchicalAttnMIL_epoch15.pth
+
+Early stopping triggered at epoch 15. Best val loss: 0.1592
+
+Training completed!
+Restored epoch 7 with validation loss 0.159162
+
+============================================================
+EVALUATING MODEL
+============================================================
+
+Test Results:
+  Test Loss: 0.4332
+  Test Acc:  0.8333
+  Samples:   18
+Predictions saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/predictions_best.csv
+Confusion matrix saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/confusion_matrix.png
+
+============================================================
+ATTENTION ANALYSIS
+============================================================
+Attention summary saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/attention_analysis/attention_summary.txt
+Per-case effective patch attention distributions saved.
+Per-case & per-stain slice attention rank plots saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/attention_analysis/slice_attention
+Per-case top 5.0% effective patches CSV saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/attention_analysis/top_effective_patches_per_case_5.0pct.csv
+Per-case top 5.0% summary saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/attention_analysis/top_effective_patches_per_case_summary_5.0pct.txt
+Attention analysis saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416/attention_analysis
+
+Results saved to: /home/ele0436/STAT390_coder/presentation2/runs/run_20261104_213330_job7249416
+
+Total execution time: 5391.64s (1.50 hours)
+Training completed successfully!
+End time: Wed Nov  4 23:03:24 CST 2026

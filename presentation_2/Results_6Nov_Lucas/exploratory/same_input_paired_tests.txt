@@ -1,0 +1,7 @@
+Same input, different encoder:
+KimiaNet, 224x224 vs UNI2, 224x224: only first right 1, only second right 18, exact McNemar p=0.0001
+KimiaNet, original size vs UNI2, original size: only first right 2, only second right 11, exact McNemar p=0.0225
+
+Same encoder, different input:
+KimiaNet, original size vs KimiaNet, 224x224: only first right 9, only second right 5, exact McNemar p=0.4240
+UNI2, original size vs UNI2, 224x224: only first right 1, only second right 5, exact McNemar p=0.2188
