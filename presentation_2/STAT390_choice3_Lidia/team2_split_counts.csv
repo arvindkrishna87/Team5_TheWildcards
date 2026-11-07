@@ -1,0 +1,6 @@
+split,train_cases,val_cases,test_cases,total_cases,overlap_train_val,overlap_train_test,overlap_val_test
+1,57,18,18,93,0,0,0
+2,56,18,19,93,0,0,0
+3,55,19,19,93,0,0,0
+4,55,19,19,93,0,0,0
+5,56,19,18,93,0,0,0

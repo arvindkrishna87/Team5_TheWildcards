@@ -1,0 +1,16 @@
+split,group,benign,high_grade,class_2,total_cases,matched_cases
+1,Train,21,35,0,56,56
+1,Validation,7,11,0,18,18
+1,Test,7,12,0,19,19
+2,Train,21,34,0,55,55
+2,Validation,7,12,0,19,19
+2,Test,7,12,0,19,19
+3,Train,21,34,0,55,55
+3,Validation,7,12,0,19,19
+3,Test,7,12,0,19,19
+4,Train,21,35,0,56,56
+4,Validation,7,12,0,19,19
+4,Test,7,11,0,18,18
+5,Train,21,36,0,57,57
+5,Validation,7,11,0,18,18
+5,Test,7,11,0,18,18

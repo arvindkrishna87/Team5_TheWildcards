@@ -1,0 +1,6 @@
+split,validation_cases,total_available_patches,median_patches_per_case,total_capped_patches,median_capped_per_case,total_slice_stain_groups
+1,18,11233,562,11033,562,47
+2,19,15925,750,14861,750,59
+3,19,17345,798,16978,798,80
+4,19,19928,871,19826,871,107
+5,18,15610,717,15372,717,78
