@@ -1,0 +1,29 @@
+{
+  "outer": "D",
+  "selected_trial": 14,
+  "selected_f": 0.05201852066211658,
+  "selected_hp": {
+    "learning_rate": 9.964698982126757e-05,
+    "weight_decay": 0.006993572553700857,
+    "classifier_dropout": 0.46321285190060735,
+    "entropy_weight": 0.007688083428356704,
+    "projector_dropout": 0.42862676503136754
+  },
+  "edge_flags": [],
+  "inner_best_epochs": [
+    14,
+    12,
+    15,
+    8
+  ],
+  "refit_epochs": 12,
+  "n_trials_complete": 40,
+  "n_test": 19,
+  "accuracy": 0.9473684210526315,
+  "benign_recall": 0.8571428571428571,
+  "high_grade_recall": 1.0,
+  "refit_class_weights": [
+    1.4285714626312256,
+    0.7692307829856873
+  ]
+}
