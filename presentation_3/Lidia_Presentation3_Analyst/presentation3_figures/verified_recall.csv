@@ -1,0 +1,7 @@
+Model,Benign Correct,Benign Recall (%),High-Grade Correct,High-Grade Recall (%)
+Baseline (512),34/35,97.14,54/58,93.1
+Embedding 256,33/35,94.29,56/58,96.55
+Embedding 128,33/35,94.29,54/58,93.1
+Embedding 64,32/35,91.43,53/58,91.38
+Stain dropout,26/28,92.86,42/47,89.36
+Slice dropout,26/28,92.86,45/47,95.74
